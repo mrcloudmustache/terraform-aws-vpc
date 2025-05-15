@@ -5,6 +5,7 @@ resource "aws_vpc" "this" {
 
   tags = {
     Name = "${var.name}-vpc"
+    segment = var.segment
   }
 }
 

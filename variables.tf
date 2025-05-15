@@ -36,6 +36,19 @@ variable "create_natgw" {
   default     = false
 }
 
+variable "segment" {
+  description = "The Cloud WAN segment name"
+  type        = string
+  default     = "development"
+}
+
+variable "core_network_id" {
+  description = "The Cloud WAN core network ID"
+  type        = string
+  default     = ""
+}
+
+
 # variable "public_key_path" {
 #   description = "Path to the local SSH public key file"
 #   type        = string

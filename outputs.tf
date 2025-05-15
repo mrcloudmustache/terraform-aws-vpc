@@ -51,3 +51,32 @@ output "public_subnet2_cidr" {
     value = aws_subnet.public2.cidr_block
   
 }
+
+output "connect_attachment_id" {
+    value = one(aws_networkmanager_connect_attachment.connect[*].id)
+  
+}
+
+output "connect_peer_1" {
+  description = "The connect peer configuration"
+  value = {
+    connect_peer_id        = aws_networkmanager_connect_peer.peer.id
+    core_network_addresses = local.core_network_addresses
+    core_network_asns      = local.core_network_asns
+    peer_addresses         = local.peer_addresses
+    peer_asns              = local.peer_asns
+  }
+
+}
+
+output "connect_peer_2" {
+  description = "The connect peer configuration"
+  value = {
+    connect_peer_id        = aws_networkmanager_connect_peer.peer2.id
+    core_network_addresses = local.core_network_addresses_2
+    core_network_asns      = local.core_network_asns_2
+    peer_addresses         = local.peer_addresses_2
+    peer_asns              = local.peer_asns_2
+  }
+
+}
