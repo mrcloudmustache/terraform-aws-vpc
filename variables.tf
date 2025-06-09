@@ -31,7 +31,7 @@ variable "create_natgw" {
   default     = false
 }
 
-variable "attach_vpc_to_cwan" {
+variable "create_vpc_attachment" {
   description = "Create vpc attachment to CloudWAN"
   type        = bool
   default     = false

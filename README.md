@@ -41,10 +41,10 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_attach_vpc_to_cwan"></a> [attach\_vpc\_to\_cwan](#input\_attach\_vpc\_to\_cwan) | Create vpc attachment to CloudWAN | `bool` | `false` | no |
 | <a name="input_cidr_block"></a> [cidr\_block](#input\_cidr\_block) | The vpc ip address space | `any` | n/a | yes |
 | <a name="input_core_network_id"></a> [core\_network\_id](#input\_core\_network\_id) | The CloudWAN core network ID | `string` | `""` | no |
 | <a name="input_create_natgw"></a> [create\_natgw](#input\_create\_natgw) | Create a nat gateway | `bool` | `false` | no |
+| <a name="input_create_vpc_attachment"></a> [create\_vpc\_attachment](#input\_create\_vpc\_attachment) | Create vpc attachment to CloudWAN | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The name of the environment | `string` | `"dev"` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the resource being created | `string` | n/a | yes |
 | <a name="input_project"></a> [project](#input\_project) | The name of the project | `string` | n/a | yes |

@@ -5,7 +5,7 @@ resource "aws_vpc" "main" {
 
   tags = {
     Name    = "${var.name}-vpc"
-    segment = var.attach_vpc_to_cwan == true ? var.segment : ""
+    segment = var.create_vpc_attachment == true ? var.segment : ""
   }
 }
 
