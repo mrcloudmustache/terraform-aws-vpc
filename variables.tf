@@ -1,19 +1,14 @@
-variable "region"  {
-    description = "The name of the AWS region"
-    type = string
-    default = "us-east-1"
+variable "region" {
+  description = "The name of the AWS region"
+  type        = string
+  default     = "us-east-1"
 }
 
 variable "environment" {
-    description = "The name of the environment"
-    type = string
-    # default = "dev"
+  description = "The name of the environment"
+  type        = string
+  default     = "dev"
 
-    # validation {
-    #   condition = var.environment == "prod" || var.environment == "dev"
-    #   error_message = "The environment name must be 'prod' or 'dev'."
-    # }
-  
 }
 
 variable "project" {
@@ -31,26 +26,35 @@ variable "name" {
 }
 
 variable "create_natgw" {
-  description = "Create the nat gateway defaults to false"
+  description = "Create a nat gateway"
+  type        = bool
+  default     = false
+}
+
+variable "attach_vpc_to_cwan" {
+  description = "Create vpc attachment to CloudWAN"
   type        = bool
   default     = false
 }
 
 variable "segment" {
-  description = "The Cloud WAN segment name"
+  description = "The CloudWAN segment tag name"
   type        = string
-  default     = "development"
+  default     = ""
+
+  validation {
+    condition     = !(var.create_vpc_attachment == true && var.segment == "")
+    error_message = "segment must be provided when create_vpc_attachment is true."
+  }
 }
 
 variable "core_network_id" {
-  description = "The Cloud WAN core network ID"
+  description = "The CloudWAN core network ID"
   type        = string
   default     = ""
+
+  validation {
+    condition     = !(var.create_vpc_attachment == true && var.core_network_id == "")
+    error_message = "core_network_id must be provided when create_vpc_attachment is true."
+  }
 }
-
-
-# variable "public_key_path" {
-#   description = "Path to the local SSH public key file"
-#   type        = string
-#   default     = "~/.ssh/id_rsa.pub" # Replace with your actual public key path
-# }

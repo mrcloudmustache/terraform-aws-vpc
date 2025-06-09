@@ -1,82 +1,83 @@
 output "vpc_id" {
-    description = "The ID of the VPC"
-    value = aws_vpc.this.id
-  
+  description = "The ID of the VPC"
+  value       = aws_vpc.main.id
+
 }
 
-output "private_subnet1_id" {
-    description = "The ID of the subnet"
-    value = aws_subnet.private1.id
-  
+output "private_subnet_id" {
+  description = "The ID of the subnet"
+  value       = aws_subnet.private.id
+
 }
 
-output "private_subnet2_id" {
-    description = "The ID of the subnet"
-    value = aws_subnet.private2.id
-  
+output "private2_subnet_id" {
+  description = "The ID of the subnet"
+  value       = aws_subnet.private2.id
+
 }
 
-output "public_subnet1_id" {
-    description = "The ID of the subnet"
-    value = aws_subnet.public1.id
-  
+output "public_subnet_id" {
+  description = "The ID of the subnet"
+  value       = aws_subnet.public.id
+
 }
 
-output "public_subnet2_id" {
-    description = "The ID of the subnet"
-    value = aws_subnet.public2.id
-  
+output "public2_subnet_id" {
+  description = "The ID of the subnet"
+  value       = aws_subnet.public2.id
+
 }
 
-output "private_subnet1_cidr" {
-    description = "The cidr block of the subnet"
-    value = aws_subnet.private1.cidr_block
-  
+output "private_subnet_cidr" {
+  description = "The cidr block of the subnet"
+  value       = aws_subnet.private.cidr_block
+
 }
 
-output "private_subnet2_cidr" {
-    description = "The cidr block of the subnet"
-    value = aws_subnet.private2.cidr_block
-  
+output "private2_subnet_cidr" {
+  description = "The cidr block of the subnet"
+  value       = aws_subnet.private2.cidr_block
+
 }
 
-output "public_subnet1_cidr" {
-    description = "The cidr block of the subnet"
-    value = aws_subnet.public1.cidr_block
-  
+output "public_subnet_cidr" {
+  description = "The cidr block of the subnet"
+  value       = aws_subnet.public.cidr_block
+
 }
 
 output "public_subnet2_cidr" {
-    description = "The cidr block of the subnet"
-    value = aws_subnet.public2.cidr_block
+  description = "The cidr block of the subnet"
+  value       = aws_subnet.public2.cidr_block
+
+}
+
+output "private_subnet_arn" {
+  description = "The arn of the subnet"
+  value       = aws_subnet.private.arn
+
+}
+
+output "private2_subnet_arn" {
+  description = "The arn of the subnet"
+  value       = aws_subnet.private2.arn
+
+}
+
+output "public_subnet_arn" {
+  description = "The arn of the subnet"
+  value       = aws_subnet.public.arn
+
+}
+
+output "public2_subnet_arn" {
+  description = "The arn of the subnet"
+  value       = aws_subnet.public2.arn
+
+}
+
+output "vpc_attachment_id" {
+    description = "The ID of the VPC CloudWAN attachment"
+    value = aws_networkmanager_vpc_attachment.main[0].id
   
-}
-
-output "connect_attachment_id" {
-    value = one(aws_networkmanager_connect_attachment.connect[*].id)
-  
-}
-
-output "connect_peer_1" {
-  description = "The connect peer configuration"
-  value = {
-    connect_peer_id        = aws_networkmanager_connect_peer.peer.id
-    core_network_addresses = local.core_network_addresses
-    core_network_asns      = local.core_network_asns
-    peer_addresses         = local.peer_addresses
-    peer_asns              = local.peer_asns
-  }
-
-}
-
-output "connect_peer_2" {
-  description = "The connect peer configuration"
-  value = {
-    connect_peer_id        = aws_networkmanager_connect_peer.peer2.id
-    core_network_addresses = local.core_network_addresses_2
-    core_network_asns      = local.core_network_asns_2
-    peer_addresses         = local.peer_addresses_2
-    peer_asns              = local.peer_asns_2
-  }
-
 }
