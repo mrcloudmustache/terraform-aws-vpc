@@ -129,7 +129,7 @@ resource "aws_route" "default_public" {
 }
 
 resource "aws_networkmanager_vpc_attachment" "main" {
-  count  = var.attach_vpc_to_cwan ? 1 : 0
+  count  = var.create_vpc_attachment ? 1 : 0
 
   subnet_arns     = [aws_subnet.private.arn, aws_subnet.private2.arn]
     core_network_id = var.core_network_id
