@@ -78,6 +78,6 @@ output "public2_subnet_arn" {
 
 output "vpc_attachment_id" {
     description = "The ID of the VPC CloudWAN attachment"
-    value = aws_networkmanager_vpc_attachment.main[0].id
+    value = aws_networkmanager_vpc_attachment.main[*].id
   
 }
