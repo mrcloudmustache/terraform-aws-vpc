@@ -22,16 +22,24 @@ output "private2_subnet_id" {
 
 }
 
+output "private_rt_id" {
+  description = "The ID of the route"
+  value       = aws_route_table.private.id
+}
+
 output "public_subnet_id" {
   description = "The ID of the subnet"
   value       = aws_subnet.public.id
-
 }
 
 output "public2_subnet_id" {
   description = "The ID of the subnet"
   value       = aws_subnet.public2.id
+}
 
+output "public_rt_id" {
+  description = "The ID of the route"
+  value       = aws_route_table.public.id
 }
 
 output "private_subnet_cidr" {
